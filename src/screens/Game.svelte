@@ -70,6 +70,8 @@
 					<Card
 						celeb={a}
 						on:select={() => submit(a, b, 1)}
+						showprice={!!last_result}
+						winner={a.price >= b.price}
 					/>
 				</div>
 
@@ -83,6 +85,8 @@
 					<Card
 						celeb={b}
 						on:select={() => submit(a, b, -1)}
+						showprice={!!last_result}
+						winner={b.price >= a.price}
 					/>
 				</div>
 			</div>
