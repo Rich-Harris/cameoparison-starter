@@ -1,11 +1,17 @@
 <script>
+	import { createEventDispatcher } from 'svelte';
+
 	export let celeb;
 
-	console.log(celeb);
+	const dispatch = createEventDispatcher();
 </script>
 
 <div class="card-outer">
-	<button class="card-inner" style="background-image: url({celeb.image});">
+	<button
+		class="card-inner"
+		style="background-image: url({celeb.image});"
+		on:click={() => dispatch('select')}
+	>
 		<div class="details">
 			<h2><a target="_blank" href="https://cameo.com/{celeb.id}">{celeb.name}</a></h2>
 
