@@ -1,10 +1,12 @@
 <script>
+	import Welcome from './screens/Welcome.svelte';
+
 	let state = 'welcome'; // 'welcome' or 'playing'
 </script>
 
 <main>
 	{#if state === 'welcome'}
-		<p>welcome screen goes here</p>
+		<Welcome/>
 	{:else if state === 'playing'}
 		<p>game screen goes here</p>
 	{/if}
