@@ -32,7 +32,7 @@ a {
 button {
 	font-family: inherit;
 	font-size: inherit;
-	background: var(--do-something);
+	background-color: var(--do-something);
 	color: #222;
 	border: none;
 	border-radius: var(--border-radius);
@@ -42,7 +42,7 @@ button {
 }
 
 button:not(:disabled):hover {
-	background: var(--do-something-lighter);
+	background-color: var(--do-something-lighter);
 }
 
 @media (min-width: 480px) {
