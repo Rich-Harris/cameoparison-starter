@@ -1,4 +1,15 @@
 <script>
+	import { createEventDispatcher } from 'svelte';
+
+	const dispatch = createEventDispatcher();
+
+	let selected = false;
+
+	const select = (category) => {
+		selected = true;
+		dispatch('select', { category });
+	};
+
 	const categories = [
 		{ slug: 'actors', label: 'Actors' },
 		{ slug: 'athletes', label: 'Athletes' },
@@ -26,7 +37,7 @@
 
 <div class="categories">
 	{#each categories as category}
-		<button>{category.label}</button>
+		<button disabled={selected} on:click={() => select(category)}>{category.label}</button>
 	{/each}
 </div>
 

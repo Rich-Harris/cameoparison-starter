@@ -41,7 +41,7 @@ button {
 	line-height: 1;
 }
 
-button:hover {
+button:not(:disabled):hover {
 	background: var(--do-something-lighter);
 }
 
