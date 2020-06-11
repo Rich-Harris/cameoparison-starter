@@ -1,4 +1,6 @@
 <script>
+	import Card from '../components/Card.svelte';
+
 	export let selection;
 
 	const load_details = async (celeb) => {
@@ -22,7 +24,7 @@
 	{#await promises[i] then [a, b]}
 		<div class="game">
 			<div class="card-container">
-				{a.name}
+				<Card celeb={a}/>
 			</div>
 
 			<div>
@@ -32,7 +34,7 @@
 			</div>
 
 			<div class="card-container">
-				{b.name}
+				<Card celeb={b}/>
 			</div>
 		</div>
 	{:catch}
@@ -49,7 +51,50 @@
 		flex: 1;
 	}
 
+	.game {
+		display: grid;
+		grid-template-rows: 1fr 2em 1fr;
+		grid-gap: 0.5em;
+		width: 100%;
+		height: 100%;
+		max-width: min(100%, 40vh);
+		margin: 0 auto;
+	}
+
+	.game > div {
+		display: flex;
+		align-items: center;
+	}
+
+	.same {
+		width: 100%;
+		align-items: center;
+		margin: 0;
+	}
+
+	.game .card-container button {
+		width: 100%;
+		height: 100%;
+		padding: 0;
+		margin: 0;
+	}
+
 	.error {
 		color: red;
+	}
+
+	@media (min-width: 640px) {
+		.game {
+			max-width: 100%;
+			grid-template-rows: none;
+			grid-template-columns: 1fr 8em 1fr;
+
+			/* work around apparent safari flex bug */
+			max-height: calc(100vh - 6em);
+		}
+
+		.same {
+			height: 8em;
+		}
 	}
 </style>
