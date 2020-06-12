@@ -1,0 +1,14 @@
+{
+	"background_color": "#222",
+	"theme_color": "#ff3e00",
+	"display": "fullscreen",
+	"description": "The Cameo comparison game",
+	"name": "CameoParison",
+	"short_name": "CameoP",
+	"start_url": "/",
+	"icons": [{
+		"src": "icons/compare-512.png",
+		"sizes": "512x512",
+		"type": "image/png"
+	}]
+}
