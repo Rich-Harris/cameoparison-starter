@@ -1,4 +1,5 @@
 import svelte from 'rollup-plugin-svelte';
+import css from 'rollup-plugin-css-only';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import livereload from 'rollup-plugin-livereload';
@@ -16,15 +17,17 @@ export default {
 	},
 	plugins: [
 		svelte({
-			// enable run-time checks when not in production
-			dev: !production,
-			// we'll extract any component CSS out into
-			// a separate file - better for performance
-			css: css => {
-				css.write('public/build/bundle.css');
+			emitCss: true,
+			compilerOptions: {
+				// enable run-time checks when not in production
+				dev: !production,
 			}
 		}),
-
+		css({
+			// we'll extract any component CSS out into
+			// a separate file - better for performance
+			output: 'bundle.css',
+		}),
 		// If you have external dependencies installed from
 		// npm, you'll most likely need these plugins. In
 		// some cases you'll need additional configuration -
